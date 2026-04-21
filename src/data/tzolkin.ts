@@ -11,7 +11,7 @@ export const SEALS = [
   { id: 10, name: 'Собака', nahuatl: 'Oc', emoji: '🐕', color: '#FF8844', element: 'Сердце', power: 'Сердечность', action: 'Любить', essence: 'Верность', description: 'Собака — лояльность, любовь и путеводная звезда сердца.' },
   { id: 11, name: 'Обезьяна', nahuatl: 'Chuen', emoji: '🐒', color: '#CC44FF', element: 'Игра', power: 'Магия', action: 'Играть', essence: 'Иллюзия', description: 'Обезьяна — трикстер, маг и мастер игры и творчества.' },
   { id: 12, name: 'Человек', nahuatl: 'Eb', emoji: '🛤️', color: '#88AA44', element: 'Путь', power: 'Свободная воля', action: 'Влиять', essence: 'Путь', description: 'Человек — странник, чья судьба — пройти свой уникальный путь.' },
-  { id: 13, name: 'Тростник', nahuatl: 'Ben', emoji: '🎋', color: '#FF4444', element: 'Время', power: 'Бесстрашие', action: 'Проводить', essence: 'Наставник', description: 'Тростник — проводник небесных сил, наставник и воин духа.' },
+  { id: 13, name: 'Небесный Странник', nahuatl: 'Ben', emoji: '🎋', color: '#FF4444', element: 'Время', power: 'Бесстрашие', action: 'Проводить', essence: 'Наставник', description: 'Небесный Странник — проводник небесных сил, наставник и воин духа.' },
   { id: 14, name: 'Ягуар', nahuatl: 'Ix', emoji: '🐆', color: '#AA44CC', element: 'Магия', power: 'Бесстрашие', action: 'Практиковать', essence: 'Шаман', description: 'Ягуар — шаман, страж земли и хранитель тайных знаний.' },
   { id: 15, name: 'Орёл', nahuatl: 'Men', emoji: '🦅', color: '#4444FF', element: 'Видение', power: 'Разум', action: 'Создавать', essence: 'Зрение', description: 'Орёл видит с высоты — архетип глобального видения и разума.' },
   { id: 16, name: 'Воин', nahuatl: 'Cib', emoji: '⚔️', color: '#884400', element: 'Разум', power: 'Разведка', action: 'Задавать вопросы', essence: 'Мудрость', description: 'Воин — тот, кто задаёт вопросы и ищет истинную мудрость.' },
@@ -47,8 +47,9 @@ export const PORTAL_DAYS = new Set([
   99, 127, 131, 159, 163, 191, 195, 223,
 ]);
 
-// Tzolkin base date: July 26, 2023 = Kin 1 (Magnetic Dragon)
-const BASE_DATE = new Date(2023, 6, 26); // July 26, 2023
+// Tzolkin base date: calibrated so that April 21, 2026 = Kin 133
+// Kin 1 = July 9, 2023
+const BASE_DATE = new Date(2023, 6, 9); // July 9, 2023
 
 export function getTzolkinDay(date: Date): { kin: number; seal: typeof SEALS[0]; tone: typeof TONES[0]; isPortal: boolean } {
   const msPerDay = 24 * 60 * 60 * 1000;

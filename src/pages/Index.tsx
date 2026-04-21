@@ -3,10 +3,11 @@ import GeometricBg from '@/components/GeometricBg';
 import TzolkinMatrix from '@/components/TzolkinMatrix';
 import KinCalculator from '@/components/KinCalculator';
 import TzolkinCalendar from '@/components/TzolkinCalendar';
+import TzolkinReference from '@/components/TzolkinReference';
 import { getTzolkinDay } from '@/data/tzolkin';
 import Icon from '@/components/ui/icon';
 
-type Section = 'home' | 'matrix' | 'calculator' | 'calendar' | 'about';
+type Section = 'home' | 'matrix' | 'calculator' | 'calendar' | 'reference' | 'about';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -18,6 +19,7 @@ export default function Index() {
   const nav: { id: Section; label: string }[] = [
     { id: 'home', label: 'ГЛАВНАЯ' },
     { id: 'matrix', label: 'МАТРИЦА' },
+    { id: 'reference', label: 'СПРАВОЧНИК' },
     { id: 'calculator', label: 'КИН СУДЬБЫ' },
     { id: 'calendar', label: 'КАЛЕНДАРЬ' },
     { id: 'about', label: 'О ПРОЕКТЕ' },
@@ -315,6 +317,25 @@ export default function Index() {
               </div>
               <div className="geo-divider mb-8" />
               <TzolkinCalendar />
+            </div>
+          </div>
+        )}
+
+        {/* REFERENCE */}
+        {activeSection === 'reference' && (
+          <div className="min-h-screen px-4 md:px-8 py-8">
+            <div className="max-w-5xl mx-auto">
+              <div className="mb-8">
+                <div className="text-xs font-mono text-gray-600 mb-1">/ СПРАВОЧНИК</div>
+                <h2 className="text-4xl font-black text-white mb-2" style={{ fontFamily: 'Oswald, sans-serif' }}>
+                  СПРАВОЧНИК <span style={{ color: 'var(--yellow)' }}>ЦОЛЬКИНА</span>
+                </h2>
+                <p className="text-sm text-gray-400">
+                  Полная таблица 260 кинов · 20 солнечных печатей · 13 галактических тонов
+                </p>
+              </div>
+              <div className="geo-divider mb-6" />
+              <TzolkinReference />
             </div>
           </div>
         )}
